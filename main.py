@@ -1,5 +1,6 @@
 import httpx
 from mcp.server.fastmcp import FastMCP
+from mcp.server.fastmcp.prompts import base
 
 DOVETAIL_URL="https://dovetail.com/api/v1"
 DOVETAIL_API_TOKEN=""
