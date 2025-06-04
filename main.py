@@ -7,6 +7,12 @@ DOVETAIL_API_TOKEN=""
 # Create MCP server instance
 mcp = FastMCP("mcp-hello-server")
 
+@mcp.resource("info://app")
+def get_app_info():
+    with open("README.md", "r") as file:
+        readme = file.read()
+        return readme
+
 @mcp.tool()
 async def get_project_highlights(project_id: str):
     async with httpx.AsyncClient() as client:
