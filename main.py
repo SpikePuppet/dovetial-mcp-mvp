@@ -7,6 +7,16 @@ DOVETAIL_API_TOKEN=""
 # Create MCP server instance
 mcp = FastMCP("mcp-hello-server")
 
+@mcp.prompt()
+def explain_thoughts(name: str) -> list[base.Message]:
+    return [
+        # Attempt at a system prompt
+        # base.SystemPrompt("You're a user researcher who is analyzing feedback on Zotify, a spotify competitor"),
+        base.UserMessage("You're a user researcher who is analyzing feedback on Zotify, a spotify competitor."),
+        base.UserMessage("You have access to Dovetail."),
+        base.UserMessage(f"Tell me about what {name} thinks, finding all notes where she expresses her opinion.")
+    ]
+
 @mcp.resource("info://app")
 def get_app_info():
     with open("README.md", "r") as file:
