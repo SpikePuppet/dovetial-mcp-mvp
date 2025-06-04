@@ -8,6 +8,16 @@ DOVETAIL_API_TOKEN=""
 mcp = FastMCP("mcp-hello-server")
 
 @mcp.tool()
+async def get_project_highlights(project_id: str):
+    async with httpx.AsyncClient() as client:
+        response = await client.get(
+            f"{DOVETAIL_URL}/highlights?filter[project_id]={project_id}",
+            headers={"Authorization": f"Bearer {DOVETAIL_API_TOKEN}"}
+        )
+        response.raise_for_status()
+        return response.json()
+
+@mcp.tool()
 async def get_project_insight(insight_id: str):
     async with httpx.AsyncClient() as client:
         response = await client.get(
