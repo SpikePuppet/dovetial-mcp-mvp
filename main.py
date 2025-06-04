@@ -27,8 +27,15 @@ async def list_project_insights(project_id: str):
         response.raise_for_status()
         return response.json()
 
-# @mcp.tool()
-# async def get_data_content(data_id: str):1
+@mcp.tool()
+async def get_data_content(data_id: str):
+    async with httpx.AsyncClient() as client:
+        response = await client.get(
+            f"{DOVETAIL_URL}/data/{data_id}/export/markdown",
+            headers={"Authorization": f"Bearer {DOVETAIL_API_TOKEN}"}
+        )
+        response.raise_for_status()
+        return response.json()
 
 
 @mcp.tool()
