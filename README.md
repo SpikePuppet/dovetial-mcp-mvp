@@ -1,3 +1,5 @@
+[![MseeP.ai Security Assessment Badge](https://mseep.net/pr/spikepuppet-dovetail-mcp-mvp-badge.png)](https://mseep.ai/app/spikepuppet-dovetail-mcp-mvp)
+
 # Dovetail MCP Server 🚀
 
 This project is a simple Model Context Protocol (MCP) server that provides API endpoints for interacting with Dovetail's project, insight, and data resources. It acts as a bridge between the MCP ecosystem and Dovetail's API, exposing useful tools for querying project highlights, insights, and data.
